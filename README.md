@@ -16,7 +16,7 @@ An example of this is how advanced analytics can help determine if a certain pla
 
 While advanced analytics such as expected goals per shot for any given puck position on the ice is beyond the scope of this project, this above example is given to demonstrate the power of sports analytics and why it's an interesting world to delve into. For my own project I want to demonstrate more simple data analytics insights by exploring the 2015 NHL Draft Class. While there are many resources out there for compiled data analytics, I want to show how to perform data analytics by myself "from scratch" by using the publically available NHL API.
 
-Why the 2015 NHL Draft Class?
+#### Why the 2015 NHL Draft Class?
 There are a few reasons. Firstly it is particularily interesting to me since it is the draft class I would have been apart of in a parallel universe where I had an athletic bone in my body, which unfortunately is not this one. But more generally, the 2015 NHL Draft Class is widely regarded as one of the strongest draft classes in NHL history, featuring players such as Connor McDavid, who is currently almost universally regarded as the best player in the world. It's also a good balance of being relevant today since most of these players should be in their "prime" age-wise, while simultaneously being far enough out to deal with concerns such as players not yet having come over from KHL, or still being used in farm leagues such as the AHL to be developed into NHL starters. It would be extremely rare for a player drafted nearly a decade ago to break into the NHL unless they already have. Either the player made it at this point, or they didn't and are most likely playing overseas in lesser leagues or currently retired. 
 
 ## ETL
