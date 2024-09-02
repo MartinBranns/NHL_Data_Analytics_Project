@@ -7,7 +7,7 @@ The purpose of this Data Analytics project is to demonstrate skills in the follo
 - Data Exploration
 - Data Visualization
 
-Tools Used: Python, SQL, Tableau, Google Excel
+Tools Used: Python, SQL, Tableau, Excel
 
 ## Introduction
 
