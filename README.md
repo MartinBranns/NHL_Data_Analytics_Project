@@ -44,7 +44,7 @@ This endpoint features all available information about a player. What I'm intere
 
 An issue I ran into was that I could not find a way to only scan for players drafted in 2015, since I needed the unique player ID parameter to use the API, and I was unable to find any API endpoint that would allow me to access all the player ID's for a specific draft class. My solution to circumvent this problem was by looping python through a range of player ID's. While certainly not ideal, the range loop allowed me to capture all players drafted in 2015 by casting a wide enough net to ensure that all players drafted in 2015 would be returned in the results, to then clean the data by removing the players who weren't. I worked under the assumption that players drafted in the same draft would reasonably be entered in the NHL database and be assigned their player_id in close proximity to each other. I tested this by first creating a smaller list of player_id's around the example ID of 8478402 that I have which is Connor McDavid's, a player drafted in 2015. 
 
-The python code for this example can be found in (PYTHON CODE LINK), and results in this table of five players:
+The python code for this example can be found in *(PYTHON CODE LINK)*, and results in this table of five players:
 
 | playerID | firstName | lastName | birth_country | position | draftYear | GamesPlayed | Goals | Assists | Points |
 |----------|-----------|----------|---------------|----------|-----------|-------------|-------|---------|--------|
@@ -56,12 +56,18 @@ The python code for this example can be found in (PYTHON CODE LINK), and results
 
 
 
-Sure enough, the surrounding player_id's were all drafted in 2015 which gave me enough confidence to try this strategy to run an iterative range with a large enough range of players surrounding my known player_id to capture all players drafted in 2015. An interesting note is that Connor McDavid was drafted first overall, yet had other players in the 2015 with ID's earlier than his, so they were not created sequentially according to draft order. However, the five players in my featured example were all drafted in the first two rounds so I made the assumption that there are likely more id's of players drafted in 2015 after McDavid's ID than before it. (LINK TO OR SHOW PYTHON CODE SOMEHOW)
+Sure enough, the surrounding player_id's were all drafted in 2015 which gave me enough confidence to try this strategy to run an iterative range with a large enough range of players surrounding my known player_id to capture all players drafted in 2015. An interesting note is that Connor McDavid was drafted first overall, yet had other players in the 2015 with ID's earlier than his, so they were not created sequentially according to draft order. However, the five players in my featured example were all drafted in the first two rounds so I made the assumption that there are likely more id's of players drafted in 2015 after McDavid's ID than before it. *(LINK TO OR SHOW PYTHON CODE SOMEHOW)*
 
-I decided on the range of 8478000 - 8479200 to give myself a large enough range to account for some missing id's or unexpected entries, while still not being too computationally demanding. The resulting dataset can be found in (LINK TO DATA).
+I decided on the range of 8478000 - 8479200 to give myself a large enough range to account for some missing id's or unexpected entries, while still not being too computationally demanding. The resulting, raw dataset can be found in *(LINK TO DATA)*.
 
 ## Data Cleaning
+*(Maybe mention steps taken to clean data OSEMN framework)*
+
 The first step of my data cleaning process was to verify that my dataset contains all the players from the 2015, so that there are no missing values. I did this by performing a COUNT on all rows that had draftYear: 2015, and checked for any duplicate values. The result showed that my database did contain 211 unique rows of players who got drafted in 2015, which is the correct amount of players for the draft year.
+
+After verifying that my dataset contains all the players drafted in 2015 necessary for my analysis, I removed all rows that contained players drafted in different years or those players that had "N/A" in the draftYear column. Players with this missing value for draftYear were scattered all over the dataset in seemingly random places amongst the 2015 draftees. However, after some investigation it seems that players with "N/A" under their draft year are undrafted players that got signed by an NHL team around the time of the 2015 draft, which is why they got included in the NHL database at that time. These players got removed since the objective is to perform an analysis of players in the 2015 draft. 
+
+Many players are shown with missing values for points scored in the NHL although some players are marked as having 0 points scored in the NHL. It seems that players who scored 0 points in the NHL are marked with "0" under points if they played in NHL games, and "N/A" if they never played an NHL game. *(Check to see if I changed all to zero or not and provide reasoning for it).*
 
 ## Data Exploration
 
