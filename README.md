@@ -69,7 +69,7 @@ After verifying that my dataset contains all the players drafted in 2015 necessa
 
 Many players are shown with missing values for points scored in the NHL although some players are marked as having 0 points scored in the NHL. It seems that players who scored 0 points in the NHL are marked with "0" under points if they played in NHL games, and "N/A" if they never played an NHL game. *(Check to see if I changed all to zero or not and provide reasoning for it).*
 
-Changed positions "R" to "RW" (Right Winger) and "L" to "LW" (Left Winger) for clarity as that is standard practice. L and R are more commonly used to denote stick position, and has significance in hockey as it is for example widely preferred for defensemen who play on the right side to be left-handed, and thus shoot "R".
+Changed positions "R" to "RW" (Right Winger) and "L" to "LW" (Left Winger) for clarity as that is standard practice. L and R are more commonly used to denote stick position, and has significance in hockey as it is for example widely preferred for defensemen who play on the right side to be left-handed, and thus shoot "R". *MAKE SURE TO UPDATE CLEAN DATASET AS IT IS NOT SHOWN IN players_5*
 
 Goaltenders are removed since I am not comparing save percentages or goals against averages, which are the two most common metric to measure the performance of a goaltender apart from advanced statistics such as expected goals against. I am only measuring points, so goaltenders are removed, and only skaters are kept in. While goaltenders can score assists (and sometimes even the rare goalie-goal on an empty net), it is not a performance metric for the position and would negatively skew the analysis.
 
@@ -85,4 +85,13 @@ For example, the top 4 forwards in the draft class measured by Games Played are 
 ## Data Visualization
 
 ## Conclusion
+
+The steps taken in my data analysis can be followed in larger-scale analysis to explore interesting subjects.
+
+Some recommendations I have of interesting topics of analysis that can be pursued with similar methods, but through the inclusion of either a larger sample size, and by adding more variables in the specific players API endpoint are as follows:
+
+- Include a larger sample size of multiple draft classes to compare their performances against eachother. For example by including all the players drafted in the 2000's and to rank them by strength of draft class. But I would warn against using recent classes since players that are still active can be expected to still produce more points after the analysis which could skew the results.
+
+- Look at the origin of players and find the best and worst performers. Here I'm not only referenceing the country of origin of players but an interesting variable to include to use as a focal point of analysis would be the youth league of players before they got drafted. Perhaps some players underperform expectations when drafted from certain leagues. Different youth leagues are going to have different strength of competition, so a player who put up 100 points in a weak youth league, might be a worse offensive producer than a player who put up 40 points in a more competitive league. This analysis could allow us to identify "hidden gems" of undervalued leagues, where players who come from these youth leagues tend to pan out and become NHL players at a higher rate than other leagues.
+
 Further analysis could be performed by including youth leagues of players before they got drafted, to see if playing in certain leagues overvalues players, or vice-versa.
