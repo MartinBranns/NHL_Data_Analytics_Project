@@ -69,8 +69,20 @@ After verifying that my dataset contains all the players drafted in 2015 necessa
 
 Many players are shown with missing values for points scored in the NHL although some players are marked as having 0 points scored in the NHL. It seems that players who scored 0 points in the NHL are marked with "0" under points if they played in NHL games, and "N/A" if they never played an NHL game. *(Check to see if I changed all to zero or not and provide reasoning for it).*
 
-## Data Exploration
+Changed positions "R" to "RW" (Right Winger) and "L" to "LW" (Left Winger) for clarity as that is standard practice. L and R are more commonly used to denote stick position, and has significance in hockey as it is for example widely preferred for defensemen who play on the right side to be left-handed, and thus shoot "R".
+
+Goaltenders are removed since I am not comparing save percentages or goals against averages, which are the two most common metric to measure the performance of a goaltender apart from advanced statistics such as expected goals against. I am only measuring points, so goaltenders are removed, and only skaters are kept in. While goaltenders can score assists (and sometimes even the rare goalie-goal on an empty net), it is not a performance metric for the position and would negatively skew the analysis.
+
+## Data Exploration (CLEAN UP LATER)
+Argument for Median PPG: Better representative for what the expected PPG can be for a given player in a draft that makes the NHL. The actual Average points per game played (Total Points / Total Games played) gets skewed because the best players from any given draft sticks around the top league, while the worse players struggle to maintain roster spots due to lacklustre performance and end up getting replaced, thus no longer contributing to the total games played by the draft class. High end talent may also start playing in the NHL faster, requiring less time in development before becoming a starting player on the highest level, thus accumulating more games played.
+
+For example, the top 4 forwards in the draft class measured by Games Played are all in the top 6 when it comes to PPG. But arguably they can be said to all be in the top 5 of PPG if we account for the fact that Kirill Kaprizov (2nd in PPG with 1.187), is a Russian born player. Players who get drafted out of Russia typically take longer to come over than those drafted from other countries due to their contract situations in the KHL, the top division in Russian hockey. The NHL honours the contractual obligations a player already has in foreign leagues, and only permits them to sign an NHL contract after that contract has expired.
+
+*INSERT OBSIDIAN IMAGES*
+
+
 
 ## Data Visualization
 
 ## Conclusion
+Further analysis could be performed by including youth leagues of players before they got drafted, to see if playing in certain leagues overvalues players, or vice-versa.
