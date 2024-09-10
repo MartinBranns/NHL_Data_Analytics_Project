@@ -119,6 +119,7 @@ Weighted PPG is represented by the lighter portion of the bar charts, with Avera
 
 
 ## Conclusion
+The dashboard successfully completes my purpose of conducting simple data analysis for sports. The steps taken can be followed to perform other data analytics processes to extract data from an API, and to transform it into a functional dashboard. This dashboard should be treated as exploratory, since the sample size used after the data cleaning process only was of 100 players, which gets reduced down when filtering for variables such as nationality and position. I plan on performing a larger scale analysis project following these steps when I find the time, by featuring more draft classes with the purpose of comparing player performance for different positions between countries and would require a larger sample size in order to arrive at some statistical significance.
 
 Some recommendations I have of interesting topics of analysis that can be pursued with similar methods, but through the inclusion of either a larger sample size, and by adding more variables in the specific players API endpoint are as follows:
 
@@ -126,5 +127,3 @@ Some recommendations I have of interesting topics of analysis that can be pursue
 
 - Look at the origin of players and find the best and worst performers. Here I'm not only refering the country of origin of players but an interesting variable to include to use as a focal point of analysis would be the youth league of players before they got drafted. Perhaps some players underperform expectations when drafted from certain leagues. Different youth leagues are going to have different strength of competition, so a player who put up 100 points in a weak youth league, might be a worse offensive producer than a player who put up 40 points in a more competitive league. This analysis could allow us to identify "hidden gems" of undervalued leagues, where players who come from these youth leagues tend to pan out and become NHL players at a higher rate than other leagues.
 
-## Future Plans
-When I find some time, I plan on doing a more extensive analysis featuring more draft classes with the purpose of comparing player performance for different positions between countries and would require a larger sample size in order to arrive at some statistical significance.
