@@ -59,8 +59,8 @@ for player_id in player_ids:
 df = pd.DataFrame(players_list)
 
 # Save the DataFrame to a CSV file
-df.to_csv('nhl_players_5.csv', index=False)
+df.to_csv('nhl2015raw.csv', index=False)
 
 # Print DataFrame
 print(df)
-print("Data saved to nhl_players_5.csv")
+print("Data saved to nhl2015raw.csv")
