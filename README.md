@@ -87,24 +87,23 @@ If we also remove defensemen from the calculation and only include forwards, we 
 
 For example, the top 4 forwards in the draft class measured by Games Played are all in the top 6 when it comes to PPG. But arguably they can be said to all be in the top 5 of PPG if we account for the fact that Kirill Kaprizov (2nd in PPG with 1.187), is a Russian born player. Players who get drafted out of Russia typically take longer to come over than those drafted from other countries due to their contract situations in the KHL, the top division in Russian hockey. The NHL honours the contractual obligations a player already has in foreign leagues, and only permits them to sign an NHL contract after that contract has expired. The KHL tends to try to lock up their impressive young players with lengthy contracts so they can keep them around for longer before losing them to the NHL than other foreign leagues.
 
-*INSERT OBSIDIAN IMAGES*
-
-
 
 ## Data Visualization
-The data visualizations were created in Tableau Public 2024.2 and put together into an interactive dashboard found below. The dashboard allows you to filter the performance metric, which in this case is Weighted PPG as argued for in the Data Exploration chapter. -
+The data visualizations were created in Tableau Public 2024.2 and put together into an interactive dashboard found below. The dashboard allows you to filter the performance metric, which in this case is Weighted PPG as argued for in the Data Exploration chapter.
+
+
 
 Link to interactive version: [2015 NHL Draft Performance Dashboard](https://public.tableau.com/app/profile/martin.br.nnstr.m/viz/NHL_2015/2015NHLDraftPerformance)
 ![image](https://github.com/user-attachments/assets/db6192e9-39ce-4e91-89af-64a161bf0886)
 
-## Conclusion
+Weighted PPG is represented by the lighter portion of the bar charts, with Average PPG represented by the darker portion. The reason for why it is presented this way and the insights that can be drawn from it, is that of how much the better players drag up the points per game. The average points per game is just the average of all represented players points per game, without taking into account total games played. As previously demonstrated, more games played is positively correlated with a higher points per game. As shown in the example below: When filtered to only include Centers, we can see that the largest disparity between the Avg. PPG and the Weighted PPG can be seen for Canadian players. Which is not very surprising since Connor McDavid is a Canadian centreman with a 1.522 PPG, and the most games played out of all centers with 645, thus leading to this large disparity. The numbers of players represented for any given country can be seen in the maps.
+![image](https://github.com/user-attachments/assets/1a18fd60-098b-4e6e-a9c1-ac551fdcf4e0)
 
-The steps taken in my data analysis can be followed in larger-scale analysis to explore interesting subjects.
+
+## Conclusion
 
 Some recommendations I have of interesting topics of analysis that can be pursued with similar methods, but through the inclusion of either a larger sample size, and by adding more variables in the specific players API endpoint are as follows:
 
 - Include a larger sample size of multiple draft classes to compare their performances against eachother. For example by including all the players drafted in the 2000's and to rank them by strength of draft class. But I would warn against using recent classes since players that are still active can be expected to still produce more points after the analysis which could skew the results.
 
 - Look at the origin of players and find the best and worst performers. Here I'm not only refering the country of origin of players but an interesting variable to include to use as a focal point of analysis would be the youth league of players before they got drafted. Perhaps some players underperform expectations when drafted from certain leagues. Different youth leagues are going to have different strength of competition, so a player who put up 100 points in a weak youth league, might be a worse offensive producer than a player who put up 40 points in a more competitive league. This analysis could allow us to identify "hidden gems" of undervalued leagues, where players who come from these youth leagues tend to pan out and become NHL players at a higher rate than other leagues.
-
-Further analysis could be performed by including youth leagues of players before they got drafted, to see if playing in certain leagues overvalues players, or vice-versa.
