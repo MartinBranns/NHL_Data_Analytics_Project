@@ -58,7 +58,7 @@ The python code for this example can be found in *(PYTHON CODE LINK)*, and resul
 
 Sure enough, the surrounding player_id's were all drafted in 2015 which gave me enough confidence to try this strategy to run an iterative range with a large enough range of players surrounding my known player_id to capture all players drafted in 2015. An interesting note is that Connor McDavid was drafted first overall, yet had other players in the 2015 with ID's earlier than his, so they were not created sequentially according to draft order. However, the five players in my featured example were all drafted in the first two rounds so I made the assumption that there are likely more id's of players drafted in 2015 after McDavid's ID than before it. *(LINK TO OR SHOW PYTHON CODE SOMEHOW)*
 
-I decided on the range of 8478000 - 8479200 to give myself a large enough range to account for some missing id's or unexpected entries, while still not being too computationally demanding. The resulting, raw dataset can be found in *(LINK TO DATA)*.
+I decided on the range of 8478000 - 8479200 to give myself a large enough range to account for some missing id's or unexpected entries, while still not being too computationally demanding. The resulting, raw dataset can be found in [nhl2015clean](nhl2015clean.csv).
 
 ## Data Cleaning
 *(Maybe mention steps taken to clean data OSEMN framework)*
