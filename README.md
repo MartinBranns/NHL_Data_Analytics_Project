@@ -116,7 +116,7 @@ Link to interactive version: [2015 NHL Draft Performance Dashboard](https://publ
 
 Weighted PPG is represented by the lighter portion of the bar charts, with Average PPG represented by the darker portion. The reason for why it is presented this way and the insights that can be drawn from it, is that of how much the better players drag up the points per game. The average points per game is just the average of all represented players points per game, without taking into account total games played. As previously demonstrated, more games played is positively correlated with a higher points per game. 
 
-As shown in the example below: When filtered to only include Centers, we can see that the largest disparity between the Avg. PPG and the Weighted PPG can be seen for Canadian players. Which is not very surprising since Connor McDavid is a Canadian centreman with the highest PPG in the draft class of 1.522, and the most games played out of all centers with 645, thus leading to this large disparity. The numbers of players represented for any given country can be seen in the maps.
+As shown in the example below: When filtered to only include Centers, we can see that the largest disparity between the Avg. PPG and the Weighted PPG can be seen for Canadian players. Which is not very surprising since Connor McDavid is a Canadian centreman with the highest PPG in the draft class of 1.522, and the most games played out of all centers with 645, thus being a key driver leading to this large disparity. The numbers of players represented for any given country can be seen in the maps.
 ![image](https://github.com/user-attachments/assets/1a18fd60-098b-4e6e-a9c1-ac551fdcf4e0)
 
 
