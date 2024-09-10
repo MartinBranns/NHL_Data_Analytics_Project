@@ -92,6 +92,10 @@ For example, the top 4 forwards in the draft class measured by Games Played are 
 
 
 ## Data Visualization
+The data visualizations were created in Tableau Public 2024.2 and put together into an interactive dashboard found below. The dashboard allows you to filter the performance metric, which in this case is Weighted PPG as argued for in the Data Exploration chapter. -
+
+Link to interactive version: [2015 NHL Draft Performance Dashboard](https://public.tableau.com/app/profile/martin.br.nnstr.m/viz/NHL_2015/2015NHLDraftPerformance)
+![image](https://github.com/user-attachments/assets/db6192e9-39ce-4e91-89af-64a161bf0886)
 
 ## Conclusion
 
