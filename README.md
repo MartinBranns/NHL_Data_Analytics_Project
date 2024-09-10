@@ -44,7 +44,7 @@ This endpoint features all available information about a player. What I'm intere
 
 An issue I ran into was that I could not find a way to only scan for players drafted in 2015, since I needed the unique player ID parameter to use the API, and I was unable to find any API endpoint that would allow me to access all the player ID's for a specific draft class. My solution to circumvent this problem was by looping python through a range of player ID's. While certainly not ideal, the range loop allowed me to capture all players drafted in 2015 by casting a wide enough net to ensure that all players drafted in 2015 would be returned in the results, to then clean the data by removing the players who weren't. I worked under the assumption that players drafted in the same draft would reasonably be entered in the NHL database and be assigned their player_id in close proximity to each other. I tested this by first creating a smaller list of player_id's around the example ID of 8478402 that I have which is Connor McDavid's, a player drafted in 2015. 
 
-The python code for this example can be found in *(PYTHON CODE LINK)*, and results in this table of five players:
+The python code for this example can be found in [APIshortlist](APIshortlist.py), and results in this table of five players:
 
 | playerID | firstName | lastName | birth_country | position | draftYear | GamesPlayed | Goals | Assists | Points |
 |----------|-----------|----------|---------------|----------|-----------|-------------|-------|---------|--------|
@@ -56,9 +56,9 @@ The python code for this example can be found in *(PYTHON CODE LINK)*, and resul
 
 
 
-Sure enough, the surrounding player_id's were all drafted in 2015 which gave me enough confidence to try this strategy to run an iterative range with a large enough range of players surrounding my known player_id to capture all players drafted in 2015. An interesting note is that Connor McDavid was drafted first overall, yet had other players in the 2015 with ID's earlier than his, so they were not created sequentially according to draft order. However, the five players in my featured example were all drafted in the first two rounds so I made the assumption that there are likely more id's of players drafted in 2015 after McDavid's ID than before it. *(LINK TO OR SHOW PYTHON CODE SOMEHOW)*
+Sure enough, the surrounding player_id's were all drafted in 2015 which gave me enough confidence to try this strategy to run an iterative range with a large enough range of players surrounding my known player_id to capture all players drafted in 2015. An interesting note is that Connor McDavid was drafted first overall, yet had other players in the 2015 with ID's earlier than his, so they were not created sequentially according to draft order. However, the five players in my featured example were all drafted in the first two rounds so I made the assumption that there are likely more id's of players drafted in 2015 after McDavid's ID than before it.
 
-I decided on the range of 8478000 - 8479200 to give myself a large enough range to account for some missing id's or unexpected entries, while still not being too computationally demanding. The resulting, raw dataset can be found in [nhl2015clean](nhl2015clean.csv).
+I decided on the range of 8478000 - 8479200 to give myself a large enough range to account for some missing id's or unexpected entries, while still not being too computationally demanding. The python code to extract the dataset is in [APIfull_list](APIfull_list.py), and the resulting csv file can be found in [nhl2015raw](nhl2015raw.csv).
 
 ## Data Cleaning
 *(Maybe mention steps taken to clean data OSEMN framework)*
