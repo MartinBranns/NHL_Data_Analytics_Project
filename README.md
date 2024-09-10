@@ -67,14 +67,16 @@ The first step of my data cleaning process was to verify that my dataset contain
 
 After verifying that my dataset contains all the players drafted in 2015 necessary for my analysis, I removed all rows that contained players drafted in different years or those players that had "N/A" in the draftYear column. Players with this missing value for draftYear were scattered all over the dataset in seemingly random places amongst the 2015 draftees. However, after some investigation it seems that players with "N/A" under their draft year are undrafted players that got signed by an NHL team around the time of the 2015 draft, which is why they got included in the NHL database at that time. These players got removed since the objective is to perform an analysis of players in the 2015 draft. 
 
-Many players are shown with missing values for points scored in the NHL although some players are marked as having 0 points scored in the NHL. It seems that players who scored 0 points in the NHL are marked with "0" under points if they played in NHL games, and "N/A" if they never played an NHL game. *(Check to see if I changed all to zero or not and provide reasoning for it).*
+Many players are shown with missing values for points scored in the NHL although some players are marked as having 0 points scored in the NHL. It seems that players who scored 0 points in the NHL are marked with "0" under points if they played in NHL games, and "N/A" if they never played an NHL game. I decided to remove all players who never played an NHL game, as that would negatively skew results and not accurately represent average/median performances.
 
-Changed positions "R" to "RW" (Right Winger) and "L" to "LW" (Left Winger) for clarity as that is standard practice. L and R are more commonly used to denote stick position, and has significance in hockey as it is for example widely preferred for defensemen who play on the right side to be left-handed, and thus shoot "R". *MAKE SURE TO UPDATE CLEAN DATASET AS IT IS NOT SHOWN IN players_5*
+Changed positions "R" to "RW" (Right Winger) and "L" to "LW" (Left Winger) for clarity as that is standard practice. L and R are more commonly used to denote stick position, and has significance in hockey as it is for example widely preferred for defensemen who play on the right side to be left-handed, and thus shoot "R".
 
-Goaltenders are removed since I am not comparing save percentages or goals against averages, which are the two most common metric to measure the performance of a goaltender apart from advanced statistics such as expected goals against. I am only measuring points, so goaltenders are removed, and only skaters are kept in. While goaltenders can score assists (and sometimes even the rare goalie-goal on an empty net), it is not a performance metric for the position and would negatively skew the analysis.
+Goaltenders are removed since I am not comparing save percentages or goals against averages, which are the two most common metrics to measure the performance of a goaltender apart from advanced statistics such as expected goals against. I am only measuring points, so goaltenders are removed, and only skaters are kept in. While goaltenders can score assists (and sometimes even the rare goalie-goal on an empty net), it is not a performance metric for the position and would negatively skew the analysis.
 
 ## Data Exploration (CLEAN UP LATER)
-Argument for Median PPG (Points per Game): Better representative for what the expected PPG can be for a given player in a draft that makes the NHL. The actual Average points per game played (Total Points / Total Games played) gets skewed because the best players from any given draft sticks around the top league, while the worse players struggle to maintain roster spots due to lacklustre performance and end up getting replaced, thus no longer contributing to the total games played by the draft class. High end talent may also start playing in the NHL faster, requiring less time in development before becoming a starting player on the highest level, thus accumulating more games played. 
+Let's discuss different ways to represent the Points per Game (PPG) stat which will be the focal point of the analysis. Better representative for what the expected PPG can be for a given player in a draft that makes the NHL. 
+
+The actual Average points per games played (Total Points / Total Games played) gets skewed because the best players from any given draft sticks around the top league, while the worse players struggle to maintain roster spots due to lacklustre performance and end up getting replaced, thus no longer contributing to the total games played by the draft class. High end talent may also start playing in the NHL faster, requiring less time in development before becoming a starting player on the highest level, thus accumulating more games played. Because of this, the "average" points per game can be more reflective of the performance of an elite outlier or two, and not of the "average" player from that given position or nationality especially when working with such a small dataset. 
 
 As shown in this scatterplot, the variables Games Played and PPG are positively correlated. The correlation coefficient is 0.71, correlation coefficients whose magnitude are above 0.7 are generally considered to be highly correlated. This graph, and correlation calculation only features players with games played in the NHL in order to not skew the results.
 
@@ -86,6 +88,26 @@ If we also remove defensemen from the calculation and only include forwards, we 
 
 
 For example, the top 4 forwards in the draft class measured by Games Played are all in the top 6 when it comes to PPG. But arguably they can be said to all be in the top 5 of PPG if we account for the fact that Kirill Kaprizov (2nd in PPG with 1.187), is a Russian born player. Players who get drafted out of Russia typically take longer to come over than those drafted from other countries due to their contract situations in the KHL, the top division in Russian hockey. The NHL honours the contractual obligations a player already has in foreign leagues, and only permits them to sign an NHL contract after that contract has expired. The KHL tends to try to lock up their impressive young players with lengthy contracts so they can keep them around for longer before losing them to the NHL than other foreign leagues.
+
+**Top 4 forwards Games Played**
+| playerID | firstName | lastName | birth_country | position | draftYear | GamesPlayed | Goals | Assists | Points | PointsPerGame |
+|----------|-----------|----------|---------------|----------|-----------|-------------|-------|---------|--------|---------------|
+| 8478402  | Connor    | McDavid  | CAN           | C        | 2015      | 645         | 335   | 647     | 982    | 1.522         |
+| 8478427  | Sebastian | Aho      | FIN           | C        | 2015      | 598         | 254   | 303     | 557    | 0.931         |
+| 8478483  | Mitch     | Marner   | CAN           | RW       | 2015      | 576         | 194   | 445     | 639    | 1.109         |
+| 8478420  | Mikko     | Rantanen | FIN           | RW       | 2015      | 570         | 262   | 355     | 617    | 1.082         |
+
+**Top 6 forwards PPG**
+| playerID | firstName  | lastName  | birth_country | position | draftYear | GamesPlayed | Goals | Assists | Points | PPG   |
+|----------|------------|-----------|---------------|----------|-----------|-------------|-------|---------|--------|-------|
+| 8478402  | Connor     | McDavid   | CAN           | C        | 2015      | 645         | 335   | 647     | 982    | 1.522 |
+| 8478864  | Kirill     | Kaprizov  | RUS           | LW       | 2015      | 278         | 160   | 170     | 330    | 1.187 |
+| 8478483  | Mitch      | Marner    | CAN           | RW       | 2015      | 576         | 194   | 445     | 639    | 1.109 |
+| 8478420  | Mikko      | Rantanen  | FIN           | RW       | 2015      | 570         | 262   | 355     | 617    | 1.082 |
+| 8478403  | Jack       | Eichel    | USA           | C        | 2015      | 539         | 211   | 303     | 514    | 0.954 |
+| 8478427  | Sebastian  | Aho       | FIN           | C        | 2015      | 598         | 254   | 303     | 557    | 0.931 |
+
+
 
 (WRITE ABOUT HOW DATA VIZ WILL INCLUDE TWO TYPES OF PPG'S DUE TO THIS DIFFERENCE)
 
