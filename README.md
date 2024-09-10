@@ -73,7 +73,7 @@ Changed positions "R" to "RW" (Right Winger) and "L" to "LW" (Left Winger) for c
 Goaltenders are removed since I am not comparing save percentages or goals against averages, which are the two most common metrics to measure the performance of a goaltender apart from advanced statistics such as expected goals against. I am only measuring points, so goaltenders are removed, and only skaters are kept in. While goaltenders can score assists (and sometimes even the rare goalie-goal on an empty net), it is not a performance metric for the position and would negatively skew the analysis.
 
 ## Data Exploration
-Let's discuss different ways to represent the Points per Game (PPG) stat which will be the focal point of the analysis. Better representative for what the expected PPG can be for a given player in a draft that makes the NHL. 
+I wanted to add Points per Game (PPG) to the dataset to be used as the primary performance metric in my analysis, but this can be represented in different ways.
 
 The actual Average points per games played (Total Points / Total Games played) gets skewed because the best players from any given draft sticks around the top league, while the worse players struggle to maintain roster spots due to lacklustre performance and end up getting replaced, thus no longer contributing to the total games played by the draft class. High end talent may also start playing in the NHL faster, requiring less time in development before becoming a starting player on the highest level, thus accumulating more games played. Because of this, the "average" points per game can be more reflective of the performance of an elite outlier or two, and not of the "average" player from that given position or nationality especially when working with such a small dataset. 
 
@@ -106,7 +106,7 @@ As shown in this scatterplot, the variables Games Played and PPG are positively 
 If we also remove defensemen from the calculation and only include forwards, we can see that correlation is even stronger with a correlation coefficient of 0.77. Although used as the most common performance metric for all skaters, points production is more substanial for forwards, since defensemen can provide more value on the defense side of the game than the average forward can. 
 ![image](https://github.com/user-attachments/assets/f5e7d5ec-cb3f-499f-be66-0f972d3f4323)
 
-The visualizations in the Tableau Dashboard will feature both the Weighted PPG and the Average PPG in order to provide additional context to the points per game metric.
+This Weighted PPG will be the highlighted number on the upcoming Tableau dashboard, but the dashboard will also feature the Average PPG in order to provide additional context to the points per game metric which will be further explained in the upcoming chapter.
 
 ## Data Visualization
 The data visualizations were created in Tableau Public 2024.2 and put together into an interactive dashboard found below. The dashboard allows you to filter the performance metric, which in this case is Weighted PPG as argued for in the Data Exploration chapter.
