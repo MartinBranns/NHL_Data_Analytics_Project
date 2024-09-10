@@ -61,7 +61,6 @@ Sure enough, the surrounding player_id's were all drafted in 2015 which gave me 
 I decided on the range of 8478000 - 8479200 to give myself a large enough range to account for some missing id's or unexpected entries, while still not being too computationally demanding. The python code to extract the dataset is in [APIfull_list](APIfull_list.py), and the resulting csv file can be found in [nhl2015raw](nhl2015raw.csv).
 
 ## Data Cleaning
-*(Maybe mention steps taken to clean data OSEMN framework)*
 
 The first step of my data cleaning process was to verify that my dataset contains all the players from the 2015, so that there are no missing values. I did this by performing a COUNT on all rows that had draftYear: 2015, and checked for any duplicate values. The result showed that my database did contain 211 unique rows of players who got drafted in 2015, which is the correct amount of players for the draft year.
 
@@ -73,24 +72,15 @@ Changed positions "R" to "RW" (Right Winger) and "L" to "LW" (Left Winger) for c
 
 Goaltenders are removed since I am not comparing save percentages or goals against averages, which are the two most common metrics to measure the performance of a goaltender apart from advanced statistics such as expected goals against. I am only measuring points, so goaltenders are removed, and only skaters are kept in. While goaltenders can score assists (and sometimes even the rare goalie-goal on an empty net), it is not a performance metric for the position and would negatively skew the analysis.
 
-## Data Exploration (CLEAN UP LATER)
+## Data Exploration
 Let's discuss different ways to represent the Points per Game (PPG) stat which will be the focal point of the analysis. Better representative for what the expected PPG can be for a given player in a draft that makes the NHL. 
 
 The actual Average points per games played (Total Points / Total Games played) gets skewed because the best players from any given draft sticks around the top league, while the worse players struggle to maintain roster spots due to lacklustre performance and end up getting replaced, thus no longer contributing to the total games played by the draft class. High end talent may also start playing in the NHL faster, requiring less time in development before becoming a starting player on the highest level, thus accumulating more games played. Because of this, the "average" points per game can be more reflective of the performance of an elite outlier or two, and not of the "average" player from that given position or nationality especially when working with such a small dataset. 
 
-As shown in this scatterplot, the variables Games Played and PPG are positively correlated. The correlation coefficient is 0.71, correlation coefficients whose magnitude are above 0.7 are generally considered to be highly correlated. This graph, and correlation calculation only features players with games played in the NHL in order to not skew the results.
-
-![image](https://github.com/user-attachments/assets/3d279247-6ff3-4547-982e-91a977491bc7)
-
-
-If we also remove defensemen from the calculation and only include forwards, we can see that correlation is even stronger with a correlation coefficient of 0.77. Although used as the most common performance metric for all skaters, points production is more substanial for forwards, since defensemen can provide more value on the defense side of the game than the average forward can. 
-![image](https://github.com/user-attachments/assets/f5e7d5ec-cb3f-499f-be66-0f972d3f4323)
-
-
 For example, the top 4 forwards in the draft class measured by Games Played are all in the top 6 when it comes to PPG. But arguably they can be said to all be in the top 5 of PPG if we account for the fact that Kirill Kaprizov (2nd in PPG with 1.187), is a Russian born player. Players who get drafted out of Russia typically take longer to come over than those drafted from other countries due to their contract situations in the KHL, the top division in Russian hockey. The NHL honours the contractual obligations a player already has in foreign leagues, and only permits them to sign an NHL contract after that contract has expired. The KHL tends to try to lock up their impressive young players with lengthy contracts so they can keep them around for longer before losing them to the NHL than other foreign leagues.
 
 **Top 4 forwards Games Played**
-| playerID | firstName | lastName | birth_country | position | draftYear | GamesPlayed | Goals | Assists | Points | PointsPerGame |
+| playerID | firstName | lastName | birth_country | position | draftYear | GamesPlayed | Goals | Assists | Points | PPG |
 |----------|-----------|----------|---------------|----------|-----------|-------------|-------|---------|--------|---------------|
 | 8478402  | Connor    | McDavid  | CAN           | C        | 2015      | 645         | 335   | 647     | 982    | 1.522         |
 | 8478427  | Sebastian | Aho      | FIN           | C        | 2015      | 598         | 254   | 303     | 557    | 0.931         |
@@ -108,13 +98,18 @@ For example, the top 4 forwards in the draft class measured by Games Played are 
 | 8478427  | Sebastian  | Aho       | FIN           | C        | 2015      | 598         | 254   | 303     | 557    | 0.931 |
 
 
+As shown in this scatterplot, the variables Games Played and PPG are positively correlated. The correlation coefficient is 0.71, correlation coefficients whose magnitude are above 0.7 are generally considered to be highly correlated. This graph, and correlation calculation only features players with games played in the NHL in order to not skew the results.
 
-(WRITE ABOUT HOW DATA VIZ WILL INCLUDE TWO TYPES OF PPG'S DUE TO THIS DIFFERENCE)
+![image](https://github.com/user-attachments/assets/3d279247-6ff3-4547-982e-91a977491bc7)
+
+
+If we also remove defensemen from the calculation and only include forwards, we can see that correlation is even stronger with a correlation coefficient of 0.77. Although used as the most common performance metric for all skaters, points production is more substanial for forwards, since defensemen can provide more value on the defense side of the game than the average forward can. 
+![image](https://github.com/user-attachments/assets/f5e7d5ec-cb3f-499f-be66-0f972d3f4323)
+
+The visualizations in the Tableau Dashboard will feature both the Weighted PPG and the Average PPG in order to provide additional context to the points per game metric.
 
 ## Data Visualization
 The data visualizations were created in Tableau Public 2024.2 and put together into an interactive dashboard found below. The dashboard allows you to filter the performance metric, which in this case is Weighted PPG as argued for in the Data Exploration chapter.
-
-
 
 Link to interactive version: [2015 NHL Draft Performance Dashboard](https://public.tableau.com/app/profile/martin.br.nnstr.m/viz/NHL_2015/2015NHLDraftPerformance)
 ![image](https://github.com/user-attachments/assets/db6192e9-39ce-4e91-89af-64a161bf0886)
