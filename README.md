@@ -10,7 +10,7 @@ The purpose of this Data Analytics project is to demonstrate skills in the follo
 Tools Used: 
 - Python
 - Excel
-- Tableau.
+- Tableau
 
 ## Introduction
 As someone who's both an avid sports fan and passionate about data analytics, I've seen data be used in fascinating ways to gain insight into players and teams across my favourite leagues. One of those leagues is the National Hockey League (NHL). I grew up in a ice hockey-crazed town in northern Sweden, which has turned me into the hockey fan I am today. All teams in the NHL have an analytics department tasked with gathering as much useful data about players and teams, and to turn them into actionable insights. 
